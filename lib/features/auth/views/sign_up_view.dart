@@ -1,4 +1,5 @@
 import 'package:empowher/common/common.dart';
+import 'package:empowher/features/auth/controller/auth_controller.dart';
 import 'package:empowher/features/auth/views/login_view.dart';
 import 'package:empowher/features/auth/widgets/auth_field.dart';
 import 'package:empowher/theme/theme.dart';
@@ -24,7 +25,17 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
     super.dispose();
   }
 
-  void onSignUp() {}
+  void signUpWithEmail() {
+    ref.read(authControllerProvider.notifier).signUpWithEmail(
+          context: context,
+          email: emailController.text,
+          password: passwordController.text,
+        );
+  }
+
+  void signUpWithGoogle() {
+    ref.read(authControllerProvider.notifier).signInWithGoogle(context: context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +63,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                 Align(
                   alignment: Alignment.topRight,
                   child: RoundedSmallButton(
-                    onTap: onSignUp,
+                    onTap: signUpWithEmail,
                     label: 'Create',
                   ),
                 ),
@@ -60,7 +71,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                 RichText(
                   text: TextSpan(
                     text: "Already have an account?",
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16, color: Pallete.grey),
                     children: [
                       TextSpan(
                         text: ' Login',
@@ -80,6 +91,11 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(height: 40),
+                RoundedSmallButton(
+                  onTap: signUpWithGoogle,
+                  label: 'Sign Up with Google',
                 ),
               ],
             ),
