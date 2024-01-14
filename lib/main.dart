@@ -1,4 +1,3 @@
-import 'package:empowher/common/common.dart';
 import 'package:empowher/features/auth/views/login_view.dart';
 import 'package:empowher/features/home/views/home_view.dart';
 import 'package:empowher/firebase_options.dart';
@@ -19,6 +18,7 @@ class MyApp extends ConsumerWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.read(currentUserProvider).value;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EmpowHer',
@@ -26,11 +26,7 @@ class MyApp extends ConsumerWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ref.watch(currentUserProvider).when(
-            data: (user) => user == null ? const LoginView() : const HomeView(),
-            loading: () => const Loader(),
-            error: (error, stackTrace) => ErrorPage(error: error.toString()),
-          ),
+      home: user == null ? const LoginView() : const HomeView(),
     );
   }
 }

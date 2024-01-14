@@ -41,7 +41,7 @@ class UserModel {
       email: map['email'] ?? '',
       name: map['name'] ?? '',
       photoURL: map['photoURL'] ?? '',
-      uid: map['\$id'] ?? '',
+      uid: map['uid'] ?? '',
       age: map['age'] ?? -1,
       gender: map['gender'] ?? 'O',
     );
