@@ -23,6 +23,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
           ),
         ],
       ),
+      body: const Center(
+        child: Text('Hello World'),
+      ),
     );
   }
 }

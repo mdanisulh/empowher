@@ -12,8 +12,8 @@ final authControllerProvider = StateNotifierProvider<AuthController, bool>(
   ),
 );
 
-final currentUserAccountProvider = Provider(
-  (ref) => ref.watch(authControllerProvider.notifier).currentUser(),
+final currentUserProvider = StreamProvider<User?>(
+  (ref) => ref.read(authAPIProvider).currentUser,
 );
 
 class AuthController extends StateNotifier<bool> {
@@ -21,8 +21,6 @@ class AuthController extends StateNotifier<bool> {
   AuthController({required AuthAPI authAPI})
       : _authAPI = authAPI,
         super(false);
-
-  User? currentUser() => _authAPI.currentUserAccount();
 
   void signUpWithEmail({required String email, required String password, required BuildContext context}) async {
     state = true;

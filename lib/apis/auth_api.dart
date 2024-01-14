@@ -13,7 +13,7 @@ abstract class IAuthAPI {
   Future<(Failure?, UserCredential?)> signUpWithEmail({required String email, required String password});
   Future<(Failure?, UserCredential?)> loginWithEmail({required String email, required String password});
   Future<(Failure?, UserCredential?)> signInWithGoogle();
-  User? currentUserAccount();
+  Stream<User?> get currentUser;
   Future<Failure?> logout();
 }
 
@@ -46,13 +46,7 @@ class AuthAPI implements IAuthAPI {
   }
 
   @override
-  User? currentUserAccount() {
-    try {
-      return firebaseAuth.currentUser;
-    } catch (e) {
-      return null;
-    }
-  }
+  Stream<User?> get currentUser => firebaseAuth.authStateChanges();
 
   @override
   Future<Failure?> logout() async {
