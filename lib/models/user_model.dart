@@ -30,7 +30,7 @@ class UserModel {
     return <String, dynamic>{
       'email': email,
       'name': name,
-      'profilePic': photoURL,
+      'photoURL': photoURL,
       'age': age,
       'gender': gender,
     };
