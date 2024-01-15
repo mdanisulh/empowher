@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class SchemeCard extends StatelessWidget {
   const SchemeCard({super.key, required this.scheme});
-  final Map<String, String> scheme;
+  final Map<String, dynamic> scheme;
   @override
   Widget build(BuildContext context) {
     return InkWell(

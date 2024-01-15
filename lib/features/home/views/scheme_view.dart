@@ -1,4 +1,5 @@
 import 'package:csc_picker/csc_picker.dart';
+import 'package:empowher/apis/scheme_api.dart';
 import 'package:empowher/features/home/widgets/scheme_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,8 +11,18 @@ class SchemeView extends ConsumerStatefulWidget {
 }
 
 class _SchemeViewState extends ConsumerState<SchemeView> {
-  String? state;
-  List<Map<String, String>> schemes = [];
+  List<Map<String, dynamic>> schemes = [];
+  void getSchemes(String? state) async {
+    schemes = await ref.read(schemeAPIProvider).getSchemes(state);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getSchemes(null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,9 +46,7 @@ class _SchemeViewState extends ConsumerState<SchemeView> {
             countryFilter: const [CscCountry.India],
             onCountryChanged: (_) {},
             onStateChanged: (value) {
-              setState(() {
-                state = value;
-              });
+              getSchemes(value);
             },
             onCityChanged: (_) {},
           ),
@@ -47,7 +56,7 @@ class _SchemeViewState extends ConsumerState<SchemeView> {
             itemBuilder: (context, index) {
               return SchemeCard(scheme: schemes[index]);
             },
-            itemCount: 10,
+            itemCount: schemes.length,
           ),
         ),
       ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SchemeDetailsView extends StatelessWidget {
   const SchemeDetailsView({super.key, required this.scheme});
-  final Map<String, String> scheme;
+  final Map<String, dynamic> scheme;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
