@@ -2,13 +2,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/mdanisulh/empowher">
-    <img src="images/logo.jpg" alt="Logo" width="80" height="80">
+    <img src="assets/images/logo.png" alt="Logo" width="250" height="250">
   </a>
 
 <h3 align="center">EmpowHer</h3>
 
   <p align="center">
-    An an app to increase financial awareness among women
+    An app to increase financial awareness among women
     <br />
     <a href="https://github.com/mdanisulh/empowher"><strong>Explore the docs »</strong></a>
     <br />

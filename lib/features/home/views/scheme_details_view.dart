@@ -5,22 +5,34 @@ class SchemeDetailsView extends StatelessWidget {
   final Map<String, dynamic> scheme;
   @override
   Widget build(BuildContext context) {
+    scheme['details'] = scheme['details'] * 10;
     return Scaffold(
       appBar: AppBar(
         title: Text(scheme['name']!),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(scheme['name']!, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-              Text('Eligibilty : ${scheme['eligibilty']!}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
-              Text(scheme['details']!),
-            ],
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/logo.png',
+            fit: BoxFit.contain,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            opacity: const AlwaysStoppedAnimation(0.15),
           ),
-        ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(scheme['name']!, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                  Text('Eligibilty : ${scheme['eligibilty']!}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+                  Text(scheme['details']!),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
