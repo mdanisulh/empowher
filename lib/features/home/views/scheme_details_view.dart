@@ -5,7 +5,6 @@ class SchemeDetailsView extends StatelessWidget {
   final Map<String, dynamic> scheme;
   @override
   Widget build(BuildContext context) {
-    scheme['details'] = scheme['details'] * 10;
     return Scaffold(
       appBar: AppBar(
         title: Text(scheme['name']!),
