@@ -5,8 +5,9 @@
     <img src="assets/images/logo.png" alt="Logo" width="250" height="250">
   </a>
 
-<h3 align="center">EmpowHer</h3>
-
+<a href="https://github.com/mdanisulh/empowher">
+    <img src="assets/images/EmpowHer.svg" alt="EmpowHer" width="350" height="100">
+  </a>
   <p align="center">
     An app to increase financial awareness among women
     <br />

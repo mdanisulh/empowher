@@ -40,67 +40,79 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AuthField(
-                  textEditingController: emailController,
-                  label: 'Email',
-                  textInputType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: 25),
-                AuthField(
-                  textEditingController: passwordController,
-                  label: 'Password',
-                  obscureText: true,
-                  textInputType: TextInputType.visiblePassword,
-                ),
-                const SizedBox(height: 40),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: RoundedSmallButton(
-                    onTap: signUpWithEmail,
-                    label: 'Create',
-                  ),
-                ),
-                const SizedBox(height: 40),
-                RichText(
-                  text: TextSpan(
-                    text: "Already have an account?",
-                    style: const TextStyle(fontSize: 16, color: Pallete.grey),
-                    children: [
-                      TextSpan(
-                        text: ' Login',
-                        style: const TextStyle(
-                          color: Pallete.blue,
-                          fontSize: 16,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginView(),
-                              ),
-                            );
-                          },
+      backgroundColor: Colors.deepPurpleAccent.shade200.withOpacity(0.5),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/logo.png',
+            fit: BoxFit.contain,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            opacity: const AlwaysStoppedAnimation(0.25),
+          ),
+          Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AuthField(
+                      textEditingController: emailController,
+                      label: 'Email',
+                      textInputType: TextInputType.emailAddress,
+                    ),
+                    const SizedBox(height: 25),
+                    AuthField(
+                      textEditingController: passwordController,
+                      label: 'Password',
+                      obscureText: true,
+                      textInputType: TextInputType.visiblePassword,
+                    ),
+                    const SizedBox(height: 40),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: RoundedSmallButton(
+                        onTap: signUpWithEmail,
+                        label: 'Create',
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 40),
+                    RichText(
+                      text: TextSpan(
+                        text: "Already have an account?",
+                        style: const TextStyle(fontSize: 16, color: Pallete.grey),
+                        children: [
+                          TextSpan(
+                            text: ' Login',
+                            style: const TextStyle(
+                              color: Pallete.blue,
+                              fontSize: 16,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginView(),
+                                  ),
+                                );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    RoundedSmallButton(
+                      onTap: signUpWithGoogle,
+                      label: 'Sign Up with Google',
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 40),
-                RoundedSmallButton(
-                  onTap: signUpWithGoogle,
-                  label: 'Sign Up with Google',
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

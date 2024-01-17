@@ -19,8 +19,8 @@ class SchemeCard extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Colors.blue.shade100,
-              Colors.blueAccent.shade700,
+              Colors.yellow.shade100,
+              Colors.yellowAccent.shade700,
             ],
           ),
         ),

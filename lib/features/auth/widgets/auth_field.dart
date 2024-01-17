@@ -20,14 +20,14 @@ class AuthField extends StatelessWidget {
       controller: textEditingController,
       obscureText: obscureText,
       keyboardType: textInputType,
-      style: const TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 20, color: Colors.white),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(fontSize: 20),
+        labelStyle: const TextStyle(fontSize: 20, color: Colors.white),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(
-            color: Pallete.blue,
+            color: Colors.amber,
             width: 4,
           ),
         ),

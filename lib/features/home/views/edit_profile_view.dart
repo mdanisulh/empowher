@@ -11,7 +11,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditProfileView extends ConsumerStatefulWidget {
-  const EditProfileView({super.key});
+  final bool willPop;
+  const EditProfileView({super.key, this.willPop = false});
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _OnboardingViewState();
 }
@@ -60,7 +61,11 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
     photoURL = null;
     profilePic = null;
     if (context.mounted && res == null) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeView()));
+      if (widget.willPop) {
+        Navigator.pop(context);
+      } else {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeView()));
+      }
     }
   }
 

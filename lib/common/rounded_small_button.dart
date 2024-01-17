@@ -19,6 +19,7 @@ class RoundedSmallButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Chip(
+        color: MaterialStateProperty.all(Colors.amber),
         label: Text(
           label,
           style: TextStyle(

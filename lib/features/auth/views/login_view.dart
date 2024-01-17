@@ -2,7 +2,6 @@ import 'package:empowher/common/common.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
 import 'package:empowher/features/auth/views/sign_up_view.dart';
 import 'package:empowher/features/auth/widgets/auth_field.dart';
-import 'package:empowher/theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,67 +39,79 @@ class _LoginViewState extends ConsumerState<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AuthField(
-                  textEditingController: emailController,
-                  label: 'Email',
-                  textInputType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: 25),
-                AuthField(
-                  textEditingController: passwordController,
-                  label: 'Password',
-                  obscureText: true,
-                  textInputType: TextInputType.visiblePassword,
-                ),
-                const SizedBox(height: 40),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: RoundedSmallButton(
-                    onTap: loginWithEmail,
-                    label: 'Login',
-                  ),
-                ),
-                const SizedBox(height: 40),
-                RichText(
-                  text: TextSpan(
-                    text: "Don't have an account?",
-                    style: const TextStyle(fontSize: 16, color: Pallete.grey),
-                    children: [
-                      TextSpan(
-                        text: ' Sign up',
-                        style: const TextStyle(
-                          color: Pallete.blue,
-                          fontSize: 16,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignUpView(),
-                              ),
-                            );
-                          },
+      backgroundColor: Colors.deepPurpleAccent.shade200.withOpacity(0.5),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/logo.png',
+            fit: BoxFit.contain,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            opacity: const AlwaysStoppedAnimation(0.25),
+          ),
+          Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AuthField(
+                      textEditingController: emailController,
+                      label: 'Email',
+                      textInputType: TextInputType.emailAddress,
+                    ),
+                    const SizedBox(height: 25),
+                    AuthField(
+                      textEditingController: passwordController,
+                      label: 'Password',
+                      obscureText: true,
+                      textInputType: TextInputType.visiblePassword,
+                    ),
+                    const SizedBox(height: 40),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: RoundedSmallButton(
+                        onTap: loginWithEmail,
+                        label: 'Login',
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 40),
+                    RichText(
+                      text: TextSpan(
+                        text: "Don't have an account?",
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        children: [
+                          TextSpan(
+                            text: ' Sign up',
+                            style: const TextStyle(
+                              color: Colors.amber,
+                              fontSize: 16,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SignUpView(),
+                                  ),
+                                );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    RoundedSmallButton(
+                      onTap: loginWithGoogle,
+                      label: 'Login with Google',
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 40),
-                RoundedSmallButton(
-                  onTap: loginWithGoogle,
-                  label: 'Login with Google',
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
