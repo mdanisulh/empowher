@@ -32,6 +32,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
     if (user == null) return const Loader();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amberAccent,
         title: Image.asset(
           'assets/images/EmpowHer.png',
           height: 50,

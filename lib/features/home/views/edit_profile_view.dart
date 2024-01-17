@@ -90,6 +90,7 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
     return user == null
         ? const Loader()
         : Scaffold(
+            backgroundColor: Colors.deepPurpleAccent.shade700,
             appBar: AppBar(
               actions: [
                 IconButton(
@@ -101,62 +102,102 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
               ],
             ),
             body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      pickImage().then((value) => setState(() {
-                            profilePic = value;
-                          }));
-                    },
-                    child: profilePic == null
-                        ? CircleAvatar(
-                            radius: 50,
-                            backgroundImage: NetworkImage(user!.photoURL),
-                          )
-                        : CircleAvatar(
-                            radius: 50,
-                            backgroundImage: FileImage(profilePic!, scale: 100),
+              child: SingleChildScrollView(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.deepPurpleAccent.shade200,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          pickImage().then((value) => setState(() {
+                                profilePic = value;
+                              }));
+                        },
+                        child: profilePic == null
+                            ? CircleAvatar(
+                                radius: 50,
+                                backgroundImage: NetworkImage(user!.photoURL),
+                              )
+                            : CircleAvatar(
+                                radius: 50,
+                                backgroundImage: FileImage(profilePic!, scale: 100),
+                              ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: TextField(
+                          controller: nameController,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Name',
+                            labelStyle: TextStyle(color: Colors.white),
+                            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white, width: 1.5),
+                            ),
                           ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextField(
+                          controller: ageController,
+                          keyboardType: TextInputType.phone,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Age',
+                            labelStyle: TextStyle(color: Colors.white),
+                            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white, width: 1.5),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      DropdownButton<String>(
+                        value: selected,
+                        hint: const Text(
+                          'Gender',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        items: gender.map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selected = newValue;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      RoundedSmallButton(
+                        onTap: updateUserData,
+                        label: 'Update',
+                      ),
+                      const SizedBox(height: 20),
+                    ],
                   ),
-                  const SizedBox(height: 20),
-                  TextField(
-                    controller: nameController,
-                    decoration: const InputDecoration(
-                      hintText: 'Name',
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  TextField(
-                    controller: ageController,
-                    keyboardType: TextInputType.phone,
-                    decoration: const InputDecoration(
-                      hintText: 'Age',
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  DropdownButton<String>(
-                    value: selected,
-                    hint: const Text('Gender'),
-                    items: gender.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selected = newValue;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: updateUserData,
-                    child: const Text('Update'),
-                  ),
-                ],
+                ),
               ),
             ),
           );

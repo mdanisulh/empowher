@@ -14,15 +14,15 @@ class SchemeCard extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Colors.yellow.shade100,
-              Colors.yellowAccent.shade700,
-            ],
-          ),
+          borderRadius: BorderRadius.circular(40), color: Colors.amberAccent,
+          // gradient: LinearGradient(
+          //   begin: Alignment.topRight,
+          //   end: Alignment.bottomLeft,
+          //   colors: [
+          //     Colors.yellow.shade100,
+          //     Colors.yellowAccent.shade700,
+          //   ],
+          // ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),

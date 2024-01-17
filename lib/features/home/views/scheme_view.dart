@@ -45,7 +45,7 @@ class _SchemeViewState extends ConsumerState<SchemeView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurpleAccent.withOpacity(0.5),
+      color: Colors.deepPurple,
       // decoration: BoxDecoration(
       //   gradient: LinearGradient(
       //     begin: Alignment.topRight,
