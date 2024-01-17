@@ -6,7 +6,9 @@
   </a>
 
 <a href="https://github.com/mdanisulh/empowher">
+  <p align="center">
     <img src="assets/images/EmpowHer.svg" alt="EmpowHer" width="350" height="100">
+  </p>
   </a>
   <p align="center">
     An app to increase financial awareness among women
@@ -52,7 +54,7 @@
 
 ### The problem:
 * Financial planning and investment activities have long been considered the domain of men, with a majority of the women depending on either their parents or husbands to manage finances. This is despite the number of women who contribute to household finances having increased manifold in the last decade.
-* India has been ranked 127 out of 146 countries in the latest Global Gender Gap report released by the World Economic Forum (WEF) for the year 2023.India's neighbours Pakistan ranked at 142, Bangladesh at 59, China at 107, Nepal at 116, Sri Lanka at 115 and Bhutan.
+* India has been ranked 127 out of 146 countries in the latest Global Gender Gap report released by the World Economic Forum (WEF) for the year 2023.India's neighbours Pakistan ranked at 142, Bangladesh at 59, China at 107, Nepal at 116, Sri Lanka at 115 and Bhutan at 103.
 * As per the Economic Survey 2021-22 tabled in Parliament, females are expected to live longer (70.7 years) than males (68.2 years). It implies that women need a bigger financial reservoir to ensure their financial security in their old age. Plus, they need to factor in additional healthcare expenses due to their longevity.
 
 ### Our solution
@@ -179,7 +181,6 @@ You should see the app launching on the connected device or emulator.
 - [x] Identify key features and functionalities for each section.
 - [x] Design the architecture.
 - [X] Choose the appropriate technology stack for app development.
-- [ ] Develop the backend infrastructure to support the app's functionality.
 - [ ] Multi-language Support
 - [ ] Perform usability testing with a diverse group of potential users to identify and resolve any bugs or issues.
 - [ ] Implement AI algorithms to manage EmpowHer community and make it more engaging and personalized. 
