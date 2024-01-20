@@ -1,9 +1,11 @@
+import 'package:empowher/.env.dart';
 import 'package:empowher/common/common.dart';
 import 'package:empowher/features/auth/views/login_view.dart';
 import 'package:empowher/features/home/views/home_view.dart';
 import 'package:empowher/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'features/auth/controller/auth_controller.dart';
 
@@ -12,6 +14,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Gemini.init(apiKey: geminiAPIKey);
   runApp(const ProviderScope(child: MyApp()));
 }
 

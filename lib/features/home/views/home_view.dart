@@ -1,5 +1,6 @@
 import 'package:empowher/common/loading_page.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
+import 'package:empowher/features/home/views/chat_view.dart';
 import 'package:empowher/features/home/views/edit_profile_view.dart';
 import 'package:empowher/features/home/views/scheme_view.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     SchemeView(),
-    Center(child: Text('[Under Development]\n Will use Gemini API')),
+    ChatView(),
     Center(child: Text('  [Under Development]\nWill use Cloud Firestore')),
   ];
 
