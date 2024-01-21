@@ -59,18 +59,24 @@
 
 ### Our solution
 Welcome to EmpowHer! An app designed to foster financial awareness and empowerment among women and bridge the gap of gender inequality. 
-This comprehensive app has three main sections:
+<img src="assets/images/login.jpg" alt="Logo" width="300" height="650">
+<img src="assets/images/update.jpg" alt="Logo" width="300" height="650">
+
+#### This comprehensive app has three main sections:
 ### 1. Government Schemes and Policies
 
 Explore a wealth of information on existing government schemes and policies tailored for women. Gain insights into available resources to support your financial well-being.
+<img src="assets/images/Schemes.jpg" alt="Logo" width="300" height="650">
 
 ### 2. Financial Q&A
 
 Get answers to your financial questions in an easy-to-understand manner. Whether it's budgeting, saving, or investing, EmpowerHER Finance provides clear explanations to empower your financial decisions.
+<img src="assets/images/QnA.jpg" alt="Logo" width="1000" height="500">
 
 ### 3. EmpowHer Community
 
 Join a supportive community where women share financial achievements, seek advice, and learn from inspiring stories of women entrepreneurs
+
 
 <!--[![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
