@@ -61,6 +61,7 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
     photoURL = null;
     profilePic = null;
     if (context.mounted && res == null) {
+      ref.invalidate(userDetailsProvider(user!.uid));
       if (widget.willPop) {
         Navigator.pop(context);
       } else {

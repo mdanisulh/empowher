@@ -18,7 +18,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   static const List<Widget> _widgetOptions = <Widget>[
     SchemeView(),
     ChatView(),
-    Center(child: Text('  [Under Development]\nWill use Cloud Firestore')),
+    Center(child: Text('            [Under Development]\n      Will use Cloud Firestore and\nAI driven recommendation systems')),
   ];
 
   void _onItemTapped(int index) {

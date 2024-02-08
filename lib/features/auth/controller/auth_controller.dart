@@ -27,11 +27,10 @@ final userDetailsProvider = FutureProvider.family<UserModel?, String>((ref, uid)
   return UserModel.fromMap(userData);
 });
 
-final currentUserDetailsProvider = StreamProvider<UserModel?>((ref) async* {
+final currentUserDetailsProvider = FutureProvider<UserModel?>((ref) async {
   final user = ref.watch(currentUserProvider).value;
-  if (user != null) {
-    yield await ref.read(userDetailsProvider(user.uid).future);
-  }
+  if (user != null) return await ref.watch(userDetailsProvider(user.uid).future);
+  return null;
 });
 
 class AuthController extends StateNotifier<bool> {
@@ -119,29 +118,29 @@ class AuthController extends StateNotifier<bool> {
           dataSnapshot = await _userAPI.getUserData(res.$2!.user!.uid);
         }
       }
-      if (context.mounted) {
-        if (res.$2 != null) {
-          if (dataSnapshot.data() != null) {
-            if ((dataSnapshot.data() as Map<String, dynamic>)['age'] == -1) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const EditProfileView(),
-                ),
-              );
-            } else {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomeView(),
-                ),
-              );
-            }
+      // if (context.mounted) {
+      if (res.$2 != null) {
+        if (dataSnapshot.data() != null) {
+          if ((dataSnapshot.data() as Map<String, dynamic>)['age'] == -1) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const EditProfileView(),
+              ),
+            );
+          } else {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeView(),
+              ),
+            );
           }
-        } else {
-          showSnackBar(context, res.$1!.message);
         }
+      } else {
+        showSnackBar(context, res.$1!.message);
       }
+      // }
     } catch (error) {
       if (context.mounted) {
         showSnackBar(context, error.toString());
