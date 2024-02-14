@@ -1,5 +1,6 @@
 import 'package:empowher/common/loading_page.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
+import 'package:empowher/features/community/views/community_view.dart';
 import 'package:empowher/features/home/views/chat_view.dart';
 import 'package:empowher/features/home/views/edit_profile_view.dart';
 import 'package:empowher/features/home/views/scheme_view.dart';
@@ -18,7 +19,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   static const List<Widget> _widgetOptions = <Widget>[
     SchemeView(),
     ChatView(),
-    Center(child: Text('            [Under Development]\n      Will use Cloud Firestore and\nAI driven recommendation systems')),
+    CommunityView(),
   ];
 
   void _onItemTapped(int index) {
