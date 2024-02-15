@@ -1,6 +1,8 @@
 import 'package:empowher/common/common.dart';
 import 'package:empowher/constants/constants.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
+import 'package:empowher/features/community/controller/post_controller.dart';
+import 'package:empowher/features/community/views/reply_view.dart';
 import 'package:empowher/features/community/widgets/carousel_image.dart';
 import 'package:empowher/features/community/widgets/my_icon.dart';
 import 'package:empowher/features/community/widgets/styled_text.dart';
@@ -98,14 +100,14 @@ class PostCard extends ConsumerWidget {
                                 pathname: AssetsConstants.commentIcon,
                                 text: post.commentIds.length.toString(),
                                 onTap: () {
-                                  // Navigator.push(context, ReplyView.route(post));
+                                  Navigator.push(context, ReplyView.route(post));
                                 },
                               ),
                               LikeButton(
                                 size: 25,
                                 isLiked: post.likes.contains(currentUser.uid),
                                 onTap: ((isLiked) async {
-                                  // ref.read(postControllerProvider.notifier).likepost(post, currentUser);
+                                  ref.read(postControllerProvider.notifier).likePost(post, currentUser);
                                   return !isLiked;
                                 }),
                                 likeBuilder: (isLiked) {

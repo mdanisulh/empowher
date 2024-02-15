@@ -13,10 +13,10 @@ class StorageAPI {
   final FirebaseStorage _storage;
   StorageAPI({required FirebaseStorage storage}) : _storage = storage;
 
-  Future<List<String>> uploadFiles({required List<File> files}) async {
+  Future<List<String>> uploadFiles({required List<File> files, required String path}) async {
     List<String> fileLinks = [];
     for (final file in files) {
-      final ref = _storage.ref().child('users/photoURL/${file.path.split('/').last}');
+      final ref = _storage.ref().child('$path/${file.path.split('/').last}');
       final uploadTask = ref.putFile(file);
       final taskSnapshot = await uploadTask.whenComplete(() {});
       final url = await taskSnapshot.ref.getDownloadURL();

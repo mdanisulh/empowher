@@ -8,7 +8,6 @@ import 'package:empowher/features/home/views/home_view.dart';
 import 'package:empowher/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
 
 class EditProfileView extends ConsumerStatefulWidget {
   final bool willPop;
@@ -46,7 +45,7 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
       return;
     }
     if (profilePic != null) {
-      photoURL = (await ref.read(storageAPIProvider).uploadFiles(files: [profilePic!])).first;
+      photoURL = (await ref.read(storageAPIProvider).uploadFiles(files: [profilePic!], path: 'profile')).first;
     }
     final res = await ref.read(userAPIProvider).saveUserData(uid: user!.uid, user: {
       'name': nameController.text,
@@ -68,13 +67,6 @@ class _OnboardingViewState extends ConsumerState<EditProfileView> {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeView()));
       }
     }
-  }
-
-  Future<File?> pickImage() async {
-    final picker = ImagePicker();
-    final image = await picker.pickImage(source: ImageSource.gallery);
-    if (image == null) return null;
-    return File(image.path);
   }
 
   @override
