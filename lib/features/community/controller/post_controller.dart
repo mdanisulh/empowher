@@ -76,7 +76,7 @@ class PostController extends StateNotifier<bool> {
       if (res.$1 != null) {
         showSnackBar(context, res.$1!.message);
       } else {
-        return post;
+        return post.copyWith(id: res.$2!.id);
       }
     }
     return null;

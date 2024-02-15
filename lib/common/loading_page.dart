@@ -1,4 +1,3 @@
-import 'package:empowher/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Loader extends StatelessWidget {
@@ -7,24 +6,14 @@ class Loader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40),
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Colors.blue.shade100,
-            Colors.deepPurpleAccent.shade400,
-          ],
-        ),
-      ),
+      color: Colors.transparent,
       child: Stack(
         children: [
           const Center(
             child: SizedBox(
               height: 150,
               width: 150,
-              child: CircularProgressIndicator(color: Pallete.white),
+              child: CircularProgressIndicator(color: Colors.deepPurpleAccent),
             ),
           ),
           Center(
@@ -44,9 +33,20 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Loader(),
-      backgroundColor: Colors.white,
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            Colors.blue.shade100,
+            Colors.deepPurpleAccent.shade400,
+          ],
+        ),
+      ),
+      child: const Loader(),
     );
   }
 }

@@ -62,7 +62,7 @@ class _CreatePostViewState extends ConsumerState<CreatePostView> {
         ),
         actions: [
           Container(
-            margin: const EdgeInsets.only(right: 15, top: 15),
+            padding: const EdgeInsets.only(right: 10),
             child: RoundedSmallButton(
               onTap: sharePost,
               label: 'Post',
@@ -93,6 +93,16 @@ class _CreatePostViewState extends ConsumerState<CreatePostView> {
                             controller: postTextController,
                             style: const TextStyle(
                               fontSize: 22,
+                            ),
+                            contentInsertionConfiguration: ContentInsertionConfiguration(
+                              allowedMimeTypes: const <String>['image/png', 'image/gif'],
+                              onContentInserted: (value) async {
+                                Directory tempDir = await Directory.systemTemp.createTemp();
+                                File tempFile = File('${tempDir.path}/temp.gif');
+                                await tempFile.writeAsBytes(value.data!);
+                                images.add(tempFile);
+                                setState(() {});
+                              },
                             ),
                             decoration: const InputDecoration(
                               hintText: "What's happening?",
@@ -141,28 +151,15 @@ class _CreatePostViewState extends ConsumerState<CreatePostView> {
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0).copyWith(
-                left: 15,
-                right: 15,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: GestureDetector(
                 onTap: onPickImages,
                 child: SvgPicture.asset(AssetsConstants.galleryIcon),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0).copyWith(
-                left: 15,
-                right: 15,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: SvgPicture.asset(AssetsConstants.gifIcon),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0).copyWith(
-                left: 15,
-                right: 15,
-              ),
-              child: SvgPicture.asset(AssetsConstants.emojiIcon),
             ),
           ],
         ),

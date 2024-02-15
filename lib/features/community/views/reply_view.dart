@@ -46,11 +46,11 @@ class ReplyView extends ConsumerWidget {
                     hintText: 'Reply',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Pallete.grey),
+                      borderSide: const BorderSide(color: Pallete.black),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Pallete.grey, width: 2),
+                      borderSide: const BorderSide(color: Pallete.black, width: 2),
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
