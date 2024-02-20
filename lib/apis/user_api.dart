@@ -9,6 +9,7 @@ final userAPIProvider = Provider((ref) {
 
 abstract class IUserAPI {
   Future<Failure?> saveUserData({required String uid, required Map<String, dynamic> user});
+  Future<Failure?> updateUserData({required String uid, required Map<String, dynamic> data});
   Future<DocumentSnapshot> getUserData(String uid);
 }
 
@@ -32,6 +33,16 @@ class UserAPI implements IUserAPI {
       return await _db.collection('users').doc(uid).get();
     } catch (error, stackTrace) {
       throw Failure(error.toString(), stackTrace);
+    }
+  }
+
+  @override
+  Future<Failure?> updateUserData({required String uid, required Map<String, dynamic> data}) async {
+    try {
+      await _db.collection('users').doc(uid).update(data);
+      return null;
+    } catch (error, stackTrace) {
+      return Failure(error.toString(), stackTrace);
     }
   }
 }

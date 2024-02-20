@@ -6,6 +6,7 @@ import 'package:empowher/features/community/views/reply_view.dart';
 import 'package:empowher/features/community/widgets/carousel_image.dart';
 import 'package:empowher/features/community/widgets/my_icon.dart';
 import 'package:empowher/features/community/widgets/styled_text.dart';
+import 'package:empowher/features/user_profile/views/user_profile_view.dart';
 import 'package:empowher/models/post_model.dart';
 import 'package:empowher/theme/pallete.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class PostCard extends ConsumerWidget {
                             Container(
                               margin: const EdgeInsets.all(10),
                               child: GestureDetector(
-                                // onTap: () => Navigator.push(context, UserProfileView.route(postAuthor!)),
+                                onTap: () => Navigator.push(context, UserProfileView.route(postAuthor)),
                                 child: CircleAvatar(
                                   radius: 30,
                                   backgroundImage: NetworkImage(postAuthor.photoURL),

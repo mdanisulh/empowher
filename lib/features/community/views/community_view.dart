@@ -22,16 +22,14 @@ class CommunityView extends ConsumerWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Loader();
         }
-        final posts = snapshot.data!.docs.map((e) => Post.fromMap(e.data() as Map<String, dynamic>)).toList();
+        final posts = snapshot.data!.docs.map((e) => Post.fromMap(e.data() as Map<String, dynamic>).copyWith(id: e.id)).toList();
         posts.sort((a, b) => b.postedAt.compareTo(a.postedAt));
         return Scaffold(
-          body: Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return posts[index].repliedTo.isEmpty ? PostCard(post: posts[index]) : const SizedBox.shrink();
-              },
-              itemCount: posts.length,
-            ),
+          body: ListView.builder(
+            itemBuilder: (context, index) {
+              return posts[index].repliedTo.isEmpty ? PostCard(post: posts[index]) : const SizedBox.shrink();
+            },
+            itemCount: posts.length,
           ),
           floatingActionButton: Padding(
             padding: const EdgeInsets.all(10),

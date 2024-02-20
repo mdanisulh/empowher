@@ -2,7 +2,7 @@ import 'package:empowher/common/loading_page.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
 import 'package:empowher/features/community/views/community_view.dart';
 import 'package:empowher/features/home/views/chat_view.dart';
-import 'package:empowher/features/home/views/edit_profile_view.dart';
+import 'package:empowher/features/user_profile/views/edit_profile_view.dart';
 import 'package:empowher/features/home/views/scheme_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

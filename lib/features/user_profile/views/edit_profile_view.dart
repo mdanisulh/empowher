@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EditProfileView extends ConsumerStatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => const EditProfileView());
   final bool willPop;
   const EditProfileView({super.key, this.willPop = false});
   @override

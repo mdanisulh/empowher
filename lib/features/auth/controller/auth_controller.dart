@@ -3,7 +3,7 @@ import 'package:empowher/apis/user_api.dart';
 import 'package:empowher/common/common.dart';
 import 'package:empowher/features/auth/views/login_view.dart';
 import 'package:empowher/features/home/views/home_view.dart';
-import 'package:empowher/features/home/views/edit_profile_view.dart';
+import 'package:empowher/features/user_profile/views/edit_profile_view.dart';
 import 'package:empowher/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

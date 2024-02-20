@@ -74,7 +74,7 @@ class PostAPI implements IPostAPI {
   @override
   Future<List<DocumentSnapshot>> getUserPosts({required String userId}) async {
     try {
-      final documentList = (await _database.collection('schemes').where('uid', isEqualTo: userId).get());
+      final documentList = (await _database.collection('posts').where('uid', isEqualTo: userId).get());
       return documentList.docs.map((doc) => doc).toList();
     } catch (e) {
       return [];
