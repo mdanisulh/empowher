@@ -49,6 +49,7 @@ dependencies:
   flutter_svg: ^2.0.9
   carousel_slider: ^4.2.1
   like_button: ^2.0.5
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -90,9 +91,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: DMSans
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/DMSans-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

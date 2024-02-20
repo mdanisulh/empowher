@@ -25,21 +25,21 @@ class AuthField extends StatelessWidget {
         labelText: label,
         labelStyle: const TextStyle(fontSize: 20, color: Colors.white),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(50),
           borderSide: const BorderSide(
             color: Colors.amber,
             width: 4,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(50),
           borderSide: const BorderSide(
             color: Pallete.grey,
             width: 2,
           ),
         ),
         focusColor: Pallete.blue,
-        contentPadding: const EdgeInsets.all(25),
+        contentPadding: const EdgeInsets.all(20),
       ),
     );
   }

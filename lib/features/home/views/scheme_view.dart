@@ -70,11 +70,15 @@ class _SchemeViewState extends ConsumerState<SchemeView> {
               padding: const EdgeInsets.all(20),
               child: TextField(
                 controller: searchController,
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-                  suffixIcon: InkWell(onTap: search, child: const Icon(Icons.search)),
+                  suffixIcon: InkWell(onTap: search, child: const Icon(Icons.search, color: Colors.white)),
                   hintText: 'Search',
-                  border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
+                  hintStyle: const TextStyle(color: Colors.white),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
                 ),
               ),
             ),

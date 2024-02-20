@@ -50,7 +50,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
               BottomNavigationBarItem(
                 icon: SizedBox.shrink(),
-                label: 'QnA',
+                label: 'Saheli',
               ),
               BottomNavigationBarItem(
                 icon: SizedBox.shrink(),

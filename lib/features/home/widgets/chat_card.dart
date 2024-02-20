@@ -19,7 +19,7 @@ class ChatCard extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: role == 'user' ? Colors.deepPurple : Colors.amberAccent,
+            color: role == 'user' ? Colors.deepPurple.shade300 : Colors.amberAccent,
             borderRadius: BorderRadius.circular(25),
           ),
           child: MarkdownBody(

@@ -13,6 +13,7 @@ class ChatView extends ConsumerStatefulWidget {
 class _ChatViewState extends ConsumerState<ChatView> {
   List<Content> content = [];
   late final TextEditingController chatController;
+  bool isLoading = false;
 
   Future<void> getResponse() async {
     if (chatController.text.isEmpty) return;
@@ -20,15 +21,18 @@ class _ChatViewState extends ConsumerState<ChatView> {
     setState(() {
       content.insert(0, Content(parts: [Parts(text: prompt)], role: 'user'));
       chatController.clear();
+      isLoading = true;
     });
     ref
         .read(geminiProvider)
         .text(prompt)
         .then((value) => setState(() {
               content.insert(0, Content(parts: [Parts(text: value?.output ?? 'Some error occurred. Please try again')], role: 'gemini'));
+              isLoading = false;
             }))
         .catchError((e) => setState(() {
               content.add(Content(parts: [Parts(text: e.toString())], role: 'gemini'));
+              isLoading = false;
             }));
   }
 
@@ -46,39 +50,49 @@ class _ChatViewState extends ConsumerState<ChatView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Expanded(
-          child: ListView.builder(
-            reverse: true,
-            itemCount: content.length,
-            itemBuilder: (context, index) {
-              return ChatCard(text: content[index].parts?[0].text ?? '', role: content[index].role!);
-            },
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: chatController,
-                  onSubmitted: (_) => getResponse,
-                  decoration: InputDecoration(
-                    hintText: 'Type your message here...',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-                    border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(30))),
-                    suffixIcon: IconButton(
-                      onPressed: getResponse,
-                      icon: const Icon(Icons.send),
+        Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                reverse: true,
+                itemCount: content.length,
+                itemBuilder: (context, index) {
+                  return ChatCard(text: content[index].parts?[0].text ?? '', role: content[index].role!);
+                },
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: chatController,
+                      onSubmitted: (_) => getResponse,
+                      decoration: InputDecoration(
+                        hintText: 'Type your message here...',
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(30))),
+                        suffixIcon: IconButton(
+                          onPressed: getResponse,
+                          icon: const Icon(Icons.send),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+        if (isLoading)
+          Container(
+            alignment: Alignment.topCenter,
+            padding: const EdgeInsets.all(15),
+            child: const CircularProgressIndicator(),
+          )
       ],
     );
   }

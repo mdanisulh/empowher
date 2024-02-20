@@ -5,6 +5,7 @@ import 'package:empowher/features/auth/widgets/auth_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({super.key});
@@ -56,6 +57,18 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Center(
+                      child: Text(
+                        'Join the sisterhood of Financial Empowerment.',
+                        style: GoogleFonts.dancingScript(
+                          color: Colors.white,
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const SizedBox(height: 30),
                     AuthField(
                       textEditingController: emailController,
                       label: 'Email',
