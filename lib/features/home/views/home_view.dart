@@ -17,9 +17,9 @@ class HomeView extends ConsumerStatefulWidget {
 class _HomeViewState extends ConsumerState<HomeView> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    SchemeView(),
-    ChatView(),
     CommunityView(),
+    ChatView(),
+    SchemeView(),
   ];
 
   void _onItemTapped(int index) {
@@ -46,7 +46,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: SizedBox.shrink(),
-                label: 'Schemes',
+                label: 'Community',
               ),
               BottomNavigationBarItem(
                 icon: SizedBox.shrink(),
@@ -54,7 +54,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
               BottomNavigationBarItem(
                 icon: SizedBox.shrink(),
-                label: 'Community',
+                label: 'Schemes',
               ),
             ],
             currentIndex: _selectedIndex,

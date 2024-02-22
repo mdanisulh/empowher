@@ -33,7 +33,7 @@ class SchemeCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(scheme['name']!, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                  Text('Eligibilty : ${scheme['eligibilty']!}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400)),
+                  Text('Eligibilty : ${scheme['eligibilty']!}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
                   Text(scheme['details']!, maxLines: 3, overflow: TextOverflow.ellipsis),
                 ],
               ),

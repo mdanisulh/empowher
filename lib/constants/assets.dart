@@ -12,4 +12,5 @@ class AssetsConstants {
   static const String notifOutlinedIcon = '$_svgsPath/notif_outlined.svg';
   static const String searchIcon = '$_svgsPath/search.svg';
   static const String viewsIcon = '$_svgsPath/views.svg';
+  static const String googleIcon = '$_svgsPath/google.svg';
 }

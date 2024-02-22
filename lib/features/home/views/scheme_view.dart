@@ -57,13 +57,13 @@ class _SchemeViewState extends ConsumerState<SchemeView> {
       //   ),
       // ),
       child: Stack(children: [
-        Image.asset(
-          'assets/images/logo.png',
-          fit: BoxFit.contain,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          opacity: const AlwaysStoppedAnimation(0.7),
-        ),
+        // Image.asset(
+        //   'assets/images/logo.png',
+        //   fit: BoxFit.contain,
+        //   height: MediaQuery.of(context).size.height,
+        //   width: MediaQuery.of(context).size.width,
+        //   opacity: const AlwaysStoppedAnimation(0.7),
+        // ),
         Column(
           children: [
             Padding(

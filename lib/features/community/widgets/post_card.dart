@@ -9,7 +9,6 @@ import 'package:empowher/features/community/widgets/styled_text.dart';
 import 'package:empowher/features/user_profile/views/user_profile_view.dart';
 import 'package:empowher/models/post_model.dart';
 import 'package:empowher/theme/pallete.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
@@ -150,7 +149,7 @@ class PostCard extends ConsumerWidget {
                   );
           },
           error: (e, st) => ErrorPage(error: e.toString()),
-          loading: () => const Loader(),
+          loading: () => const SizedBox.shrink(),
         );
   }
 }

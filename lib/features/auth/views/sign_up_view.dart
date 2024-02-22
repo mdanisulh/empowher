@@ -1,4 +1,5 @@
 import 'package:empowher/common/common.dart';
+import 'package:empowher/constants/constants.dart';
 import 'package:empowher/features/auth/controller/auth_controller.dart';
 import 'package:empowher/features/auth/views/login_view.dart';
 import 'package:empowher/features/auth/widgets/auth_field.dart';
@@ -6,6 +7,7 @@ import 'package:empowher/theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpView extends ConsumerStatefulWidget {
@@ -60,8 +62,8 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                   children: [
                     Center(
                       child: Text(
-                        'Join the sisterhood of Financial Empowerment.',
-                        style: GoogleFonts.dancingScript(
+                        'Join the journey to Financial Empowerment',
+                        style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -118,6 +120,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                     RoundedSmallButton(
                       onTap: signUpWithGoogle,
                       label: 'Sign Up with Google',
+                      icon: SvgPicture.asset(AssetsConstants.googleIcon),
                     ),
                   ],
                 ),
