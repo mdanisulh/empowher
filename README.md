@@ -61,27 +61,32 @@
 Welcome to EmpowHer! An app designed to foster financial awareness and empowerment among women and bridge the gap of gender inequality. 
 
 <p float="center" align="center">
-  <img src="assets/images/Login.jpg" alt="Login Screen" width="300" height="650">
+  <img src="assets/images/new_login.jpg" alt="Login Screen" width="300" height="650">
   <img src="assets/images/update.jpg" alt="Edit Profile Screen" width="300" height="650">
 </p>
 
 #### This comprehensive app has three main sections:
-### 1. Government Schemes and Policies
-
-Explore a wealth of information on existing government schemes and policies tailored for women. Gain insights into available resources to support your financial well-being.
-
-<div align="center"><img src="assets/images/Schemes.jpg" alt="Schemes Screen" width="300" height="650"></div>
-
-### 2. Financial Q&A
-
-Get answers to your financial questions in an easy-to-understand manner. Whether it's budgeting, saving, or investing, EmpowerHER Finance provides clear explanations to empower your financial decisions.
-
-<div align="center"><img src="assets/images/QnA.jpg" alt="QnA Screen" width="500" height="650"></div>
-
-### 3. EmpowHer Community
+### 1. EmpowHer Community
 
 Join a supportive community where women share financial achievements, seek advice, and learn from inspiring stories of women entrepreneurs
 
+<div align="center"><img src="assets/images/community.jpg" alt="Schemes Screen" width="300" height="650"></div>
+
+### 2. Saheli chatbot
+
+Get answers to your financial questions in an easy-to-understand manner. Whether it's budgeting, saving, or investing, EmpowerHER Finance provides clear explanations to empower your financial decisions.
+
+<div align="center"><img src="assets/images/Saheli_eng.jpg" alt="QnA Screen" width="350" height="750"></div>
+
+The bot supports over 40 languages. Users can chat with our bot in whichever language they are comfortable with.
+
+<div align="center"><img src="assets/images/Saheli_beng.jpg" alt="QnA Screen" width="350" height="750"></div>
+
+### 3. Government Schemes and Policies
+
+Explore a wealth of information on existing government schemes and policies tailored for women. Gain insights into available resources to support your financial well-being.
+
+<div align="center"><img src="assets/images/new_schemes.jpg" alt="QnA Screen" width="350" height="750"></div>
 
 <!--[![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -193,8 +198,11 @@ You should see the app launching on the connected device or emulator.
 - [x] Design the architecture.
 - [X] Choose the appropriate technology stack for app development.
 - [ ] Multi-language Support
-- [ ] Perform usability testing with a diverse group of potential users to identify and resolve any bugs or issues.
+- [X] Perform usability testing with a diverse group of potential users to identify and resolve any bugs or issues.
 - [ ] Implement AI algorithms to manage EmpowHer community and make it more engaging and personalized. 
+- [ ] Integrate advanced machine learning models to provide systematic investment plans to our users based on their budget.
+- [ ] Collaborate with financial institutions to provide organised financial courses for free and partnerships with women-focused organizations.
+- [ ] Expand the app's database to include schemes from different countries across the world, to address the issues on a global level.
 - [ ] Release the app to the public, making it accessible to users.
 - [ ] Continuously seek user feedback and iterate on the app to meet evolving user needs.
 
